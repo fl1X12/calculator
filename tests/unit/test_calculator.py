@@ -23,7 +23,7 @@ class TestMultiplyDivide:
     """Test multiplication and division operations"""
     def test_multiply_positive_numbers(self):
         """Test multiplying positive numbers"""
-        assert multiply(3, 4) == 12
+        assert multiply(3, 8) == 24
         assert multiply(7, 8) == 56
 
     def test_multiply_by_zero(self):
