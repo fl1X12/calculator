@@ -40,7 +40,11 @@ class TestMultiplyDivide:
         """Test dividing positive numbers"""
         assert divide(10, 2) == 5
         assert divide(15, 3) == 5
-
+    
+    def test_divide_by_zero(self):
+        with pytest.raises(ZeroDivisionError):
+            divide(10, 0)
+            
     def test_divide_negative_numbers(self):
         """Test dividing negative numbers"""
         assert divide(-10, 2) == -5
