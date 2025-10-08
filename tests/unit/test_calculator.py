@@ -2,17 +2,19 @@
 Unit Tests for Calculator
 Students start with 2 passing tests, then add more
 """
+
 import pytest
 from src.calculator import add, divide, subtract, multiply
 
+
 class TestBasicOperations:
     """Test basic arithmetic operations"""
-    
+
     def test_add_positive_numbers(self):
         """Test adding positive numbers"""
         assert add(2, 3) == 5
         assert add(10, 15) == 25
-    
+
     def test_subtract_positive_numbers(self):
         """Test subtracting positive numbers"""
         assert subtract(5, 3) == 2
@@ -21,6 +23,7 @@ class TestBasicOperations:
 
 class TestMultiplyDivide:
     """Test multiplication and division operations"""
+
     def test_multiply_positive_numbers(self):
         """Test multiplying positive numbers"""
         assert multiply(3, 8) == 24
@@ -40,12 +43,12 @@ class TestMultiplyDivide:
         """Test dividing positive numbers"""
         assert divide(10, 2) == 5
         assert divide(15, 3) == 5
-    
+
     def test_divide_by_zero(self):
         with pytest.raises(ZeroDivisionError):
             divide(10, 0)
-            
+
     def test_divide_negative_numbers(self):
         """Test dividing negative numbers"""
         assert divide(-10, 2) == -5
-        assert divide(-12, -3) == 4 
+        assert divide(-12, -3) == 4
