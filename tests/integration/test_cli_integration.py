@@ -12,7 +12,7 @@ class TestCLIIntegration:
 
     def run_cli(self, *args):
         """Helper method to run CLI and capture output"""
-        cmd = [sys.executable, "src/cli.py"] + list(args)
+        cmd = [sys.executable,"-m", "src.cli"] + list(args)
         result = subprocess.run(cmd, capture_output=True, text=True, cwd=".")
         return result
 
@@ -35,8 +35,10 @@ class TestCLIIntegration:
         result = self.run_cli("subtract", "5")
         assert result.returncode == 1
         # CLI prints a generic unexpected error message for this case
-        assert result.stdout.strip().startswith("Unexpected error:")
-
+        assert (
+            result.stdout.strip()
+            == "Error: The 'subtract' operation requires two numbers."
+        )
 
     def test_cli_multiply_integration(self):
         """Test CLI can perform multiplication"""

@@ -15,14 +15,14 @@ def subtract(a, b):
 
 
 def multiply(a, b):
+    """multiply 2 numbers"""
     result = a * b
-    print(f"Result: {result}")
     return result
 
 
 def divide(a, b):
+    """divide 2 numbers"""
     result = a / b
-    print(f"Result: {result}")
     return result
 
 
