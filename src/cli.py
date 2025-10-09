@@ -14,12 +14,6 @@ from src.calculator import add, subtract, multiply, divide, power, square_root
 @click.argument("num2", type=float, required=False)
 def calculate(operation, num1, num2=None):
     """Simple calculator CLI"""
-
-    # Check for missing second number for operations that require it
-    if operation in ["add", "subtract", "multiply", "divide", "power"] and num2 is None:
-        click.echo(f"Error: The '{operation}' operation requires two numbers.")
-        sys.exit(1)
-
     try:
         if operation == "add":
             result = add(num1, num2)
@@ -31,26 +25,18 @@ def calculate(operation, num1, num2=None):
             result = divide(num1, num2)
         elif operation == "power":
             result = power(num1, num2)
-        elif operation == "square_root":
+        elif operation == "square_root" or operation== "sqrt":
             result = square_root(num1)
         else:
             click.echo(f"Unknown operation: {operation}")
             sys.exit(1)
-
-        # Format result nicely
-        # Check if the result is a whole number
+        
         if result == int(result):
             click.echo(int(result))
         else:
             click.echo(f"{result:.2f}")
 
     except ValueError as e:
-        click.echo(f"Error: {e}")
-        sys.exit(1)
-    except Exception as e:
-        click.echo(f"Unexpected error: {e}")
-        sys.exit(1)
-
-
+                 
 if __name__ == "__main__":
     calculate()
