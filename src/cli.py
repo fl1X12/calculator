@@ -46,6 +46,11 @@ def calculate(operation, num1, num2=None):
         # Handle errors raised from the calculator module (e.g., division by zero)
         click.echo(e)
         sys.exit(1)
+    
+    except ZeroDivisionError:
+        # Specifically handle division by zero to match the test case
+        click.echo("Cannot divide by zero")
+        sys.exit(1)
 
 
 if __name__ == "__main__":
